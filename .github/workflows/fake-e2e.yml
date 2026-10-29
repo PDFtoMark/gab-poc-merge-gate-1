@@ -1,0 +1,12 @@
+name: E2E Test on change
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+permissions:
+  contents: read
+jobs:
+  forged:
+    runs-on: ubuntu-latest
+    steps:
+      - name: forged run
+        run: echo "FORGED name=E2E Test on change action=${{ github.event.action }} head=${{ github.event.pull_request.head.sha }}"
